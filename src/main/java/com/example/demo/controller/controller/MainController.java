@@ -26,10 +26,13 @@ public class MainController {
     public String getServers(){
         return "servers";
     }
+
     @GetMapping("/servers/{id}")
     public String getServer(@PathVariable Long id){
-        return "server";
+        return "serv";
     }
+
+
 
 
 

@@ -12,24 +12,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/servers")
 public class ServersRestController {
 
     @Autowired
     private ServerService serverService;
 
-    @Autowired
-    private MainDataService mainDataService;
 
 
 
 
-    @GetMapping("/servers")
+
+    @GetMapping
     public List<Server> getServers(){
         return serverService.servers();
     }
 
-    @GetMapping("/servers/{id}")
+    @GetMapping("/{id}")
     public Server getServer(@PathVariable Long id){
         Server server = new Server();
         List<Server> servers = serverService.servers();
@@ -41,8 +40,5 @@ public class ServersRestController {
 
         return server;
     }
-    @GetMapping("/main")
-    public String getMainData(){
-        return "123";
-    }
+
 }

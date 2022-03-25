@@ -13,12 +13,14 @@ public class MainDataService {
     @Autowired
     private MainDataRepository mainDataRepository;
 
-    public MainData getMainData(){
-        List<MainData> mainDatas = mainDataRepository.findAll();
-        return mainDatas.get(0);
+    public List<MainData> getMainData(){
+        return mainDataRepository.findAll();
+
     }
     public void createMainData(){
         mainDataRepository.save(new MainData());
     }
+
+
 
 }
