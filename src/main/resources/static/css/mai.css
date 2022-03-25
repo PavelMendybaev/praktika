@@ -16,5 +16,30 @@
     font-size: 25px;
 }
 .body-main{
-    background-color: burlywood;
+    background-color: cadetblue;
+}
+
+.div-servers{
+    text-align: center;
+}
+.div-servers div{
+    border-radius: 20px;
+    margin-left: 200px;
+    margin-right: 200px ;
+    height: 200px;
+    border: 5px solid darkgray;
+    background-color: gray;
+    margin-bottom: 7px;
+}
+.div-servers div a{
+    font-size: 30px;
+    margin: 0;
+    position: relative;
+    top: 50%;
+}
+.div-servers div h3{
+    margin: 0;
+    position: relative;
+    top: 6%;
+    right: 45%;
 }

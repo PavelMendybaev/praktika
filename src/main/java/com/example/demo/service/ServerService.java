@@ -22,4 +22,8 @@ public class ServerService {
     public void save(Server server){
         serverRepository.save(server);
     }
+
+    public Server getServerById(Long id){
+        return serverRepository.getById(id);
+    }
 }
