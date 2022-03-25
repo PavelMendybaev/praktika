@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.model.Server;
 import com.example.demo.repository.ServerRepository;
+import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,17 @@ public class ServerService {
 
     public Server getServerById(Long id){
         return serverRepository.getById(id);
+    }
+
+    public void addServers(int num){
+
+        for (int i = 0 ; i < num ; i++){
+
+            RandomString randomString = new RandomString(8);
+            String str = randomString.nextString();
+            Server server = new Server(str);
+            save(server);
+        }
+
     }
 }

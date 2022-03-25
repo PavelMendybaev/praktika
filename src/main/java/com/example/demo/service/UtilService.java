@@ -1,8 +1,10 @@
 package com.example.demo.service;
 
+import com.example.demo.model.Server;
 import com.example.demo.model.Util;
 import com.example.demo.repository.UtilRepository;
 import com.example.demo.util.UtilGame;
+import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,9 @@ public class UtilService {
     @Autowired
     private UtilRepository utilRepository;
     @Autowired
-    private UtilGame utilGame;
+    private ServerService serverService;
+    @Autowired
+    private MainDataService mainDataService;
 
     public List<Util> utils(){
         return utilRepository.findAll();
@@ -34,9 +38,12 @@ public class UtilService {
             System.out.println("сохранение UTIL");
             addUtil();
             System.out.println("оздание серверов UTIL");
-            utilGame.addServers(5);
+            serverService.addServers(5);
+            mainDataService.createMainData();
             System.out.println("готов");
         }
 
     }
+
+
 }

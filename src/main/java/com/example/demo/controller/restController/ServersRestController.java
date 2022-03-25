@@ -1,31 +1,35 @@
 package com.example.demo.controller.restController;
 
+import com.example.demo.model.MainData;
 import com.example.demo.model.Server;
 import com.example.demo.model.User;
+import com.example.demo.service.MainDataService;
 import com.example.demo.service.ServerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController("/api/servers")
+@RestController
+@RequestMapping("/api")
 public class ServersRestController {
-    private final ServerService serverService;
 
     @Autowired
-    public ServersRestController(ServerService serverService) {
-        this.serverService = serverService;
-    }
+    private ServerService serverService;
 
-    @GetMapping("/api/servers")
+    @Autowired
+    private MainDataService mainDataService;
+
+
+
+
+    @GetMapping("/servers")
     public List<Server> getServers(){
         return serverService.servers();
     }
 
-    @GetMapping("/api/servers/{id}")
+    @GetMapping("/servers/{id}")
     public Server getServer(@PathVariable Long id){
         Server server = new Server();
         List<Server> servers = serverService.servers();
@@ -36,5 +40,9 @@ public class ServersRestController {
         }
 
         return server;
+    }
+    @GetMapping("/main")
+    public String getMainData(){
+        return "123";
     }
 }

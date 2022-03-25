@@ -10,18 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UtilGame {
 
-    @Autowired
-    private ServerService serverService;
 
-    public void addServers(int num){
 
-        for (int i = 0 ; i < num ; i++){
 
-            RandomString randomString = new RandomString(8);
-            String str = randomString.nextString();
-            Server server = new Server(str);
-            serverService.save(server);
-        }
-
-    }
 }
